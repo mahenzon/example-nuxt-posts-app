@@ -1,6 +1,6 @@
 <template>
   <div class="actions">
-    <PostReactions :reactions="post.reactions" />
+    <PostReactions :post="post"/>
     <PostMeta :post="post" />
   </div>
 </template>
