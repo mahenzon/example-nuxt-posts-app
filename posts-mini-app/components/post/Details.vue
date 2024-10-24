@@ -2,6 +2,7 @@
   <div>
     <h1>{{ post.title }}</h1>
     <div>{{ post.body }}</div>
+    <PostFooter :post="post"/>
   </div>
 </template>
 
