@@ -13,3 +13,8 @@ declare interface Post {
     views: number
     userId: number
 }
+
+declare interface PostReaction {
+    like: boolean
+    dislike: boolean
+}
