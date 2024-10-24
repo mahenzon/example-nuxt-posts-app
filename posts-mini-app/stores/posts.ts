@@ -6,6 +6,7 @@ export const usePostsStore = defineStore('postsStore', () => {
 
   // state
   const postsData = ref<Map<number, Post>>(new Map())
+  const postsReactions = ref<Map<number, PostReaction>>(new Map())
   const isLoading = ref<boolean>(false)
 
   // getters
@@ -60,6 +61,19 @@ export const usePostsStore = defineStore('postsStore', () => {
     return post
   }
 
+  function getStoredPostReactions(id: number): PostReaction {
+    if (!postsReactions.value.has(id)) {
+      postsReactions.value.set(id, { like: false, dislike: false })
+    }
+    return postsReactions.value.get(id)!
+  }
+
+  async function toggleReaction(postId: number, reaction: 'like' | 'dislike') {
+    // async because there should be some API request too, now 'on mocks'
+    const postReaction = getStoredPostReactions(postId)
+    postReaction[reaction] = !postReaction[reaction]
+  }
+
   return {
     // state
     postsData,
@@ -70,5 +84,7 @@ export const usePostsStore = defineStore('postsStore', () => {
     // actions
     loadPosts,
     loadPost,
+    getStoredPostReactions,
+    toggleReaction,
   }
 })
