@@ -4,18 +4,19 @@ export const usePostsStore = defineStore('postsStore', () => {
   // setup
   const config = useAppConfig()
 
+  // base store
+  const store = createBaseStore<Post>()
+
   // state
-  const postsData = ref<Map<number, Post>>(new Map())
   const postsReactions = ref<Map<number, PostReaction>>(new Map())
-  const isLoading = ref<boolean>(false)
 
   // getters
-  const posts = computed(() => [...postsData.value.values()].sort((a, b) => a.id - b.id))
-  const getPost = computed(() => (id: number) => postsData.value.get(id))
+  const posts = computed(() => [...store.data.value.values()].sort((a, b) => a.id - b.id))
+  const getPost = computed(() => (id: number) => store.data.value.get(id))
 
   // utils
   async function fetchPosts(): Promise<Post[]> {
-    const data: { posts: Post[] } = await $fetch(config.postsApi.url, {
+    const data: { posts: Post[] } = await $fetch(config.api.posts.url, {
       params: {
         limit: config.postsApi.limit,
       },
@@ -34,30 +35,19 @@ export const usePostsStore = defineStore('postsStore', () => {
     }
   }
 
-  function savePost(post: Post) {
-    postsData.value.set(post.id, post)
-  }
-
-  function savePosts(posts: Post[]) {
-    posts.map(savePost)
-  }
-
   // actions
   async function loadPosts(): Promise<void> {
-    isLoading.value = true
-    const posts = await fetchPosts()
-    savePosts(posts)
-    isLoading.value = false
+    await store.loadData(fetchPosts)
   }
 
   async function loadPost(id: number): Promise<Post | undefined> {
-    let post = postsData.value.get(id)
+    let post = store.data.value.get(id)
     if (post) {
       return post
     }
     post = await fetchPost(id)
     if (post) {
-      savePost(post)
+      store.saveItem(post)
     }
     return post
   }
@@ -73,7 +63,7 @@ export const usePostsStore = defineStore('postsStore', () => {
     const postReaction = getStoredPostReactions(id)
     const secondReaction: 'like' | 'dislike' = reaction === 'like' ? 'dislike' : 'like'
 
-    const reactionsCount = postsData.value.get(id)!.reactions
+    const reactionsCount = store.data.value.get(id)!.reactions
     const prevValue = postReaction[reaction]
     postReaction[reaction] = !prevValue
     if (!prevValue) {
@@ -100,9 +90,7 @@ export const usePostsStore = defineStore('postsStore', () => {
   }
 
   return {
-    // state
-    postsData,
-    isLoading,
+    ...store,
     // getters
     posts,
     getPost,
