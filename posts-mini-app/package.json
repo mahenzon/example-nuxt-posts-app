@@ -12,12 +12,15 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@pinia/nuxt": "^0.5.5",
+    "@vesp/nuxt-fontawesome": "^1.1.0",
     "nuxt": "^3.13.2",
     "pinia": "^2.2.4",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@nuxt/eslint": "^0.6.0",
     "eslint": "^9.13.0",
     "typescript": "^5.6.3"

@@ -14,6 +14,9 @@ importers:
       '@pinia/nuxt':
         specifier: ^0.5.5
         version: 0.5.5(magicast@0.3.5)(rollup@4.24.0)(typescript@5.6.3)(vue@3.5.12(typescript@5.6.3))
+      '@vesp/nuxt-fontawesome':
+        specifier: ^1.1.0
+        version: 1.1.0(magicast@0.3.5)(rollup@4.24.0)
       nuxt:
         specifier: ^3.13.2
         version: 3.13.2(@parcel/watcher@2.4.1)(@types/node@22.7.9)(eslint@9.13.0(jiti@2.3.3))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.24.0)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(terser@5.36.0))
@@ -27,6 +30,12 @@ importers:
         specifier: latest
         version: 4.4.5(vue@3.5.12(typescript@5.6.3))
     devDependencies:
+      '@fortawesome/free-regular-svg-icons':
+        specifier: ^6.6.0
+        version: 6.6.0
+      '@fortawesome/free-solid-svg-icons':
+        specifier: ^6.6.0
+        version: 6.6.0
       '@nuxt/eslint':
         specifier: ^0.6.0
         version: 0.6.0(eslint@9.13.0(jiti@2.3.3))(magicast@0.3.5)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(terser@5.36.0))
@@ -839,6 +848,22 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
+  '@fortawesome/fontawesome-common-types@6.6.0':
+    resolution: {integrity: sha512-xyX0X9mc0kyz9plIyryrRbl7ngsA9jz77mCZJsUkLl+ZKs0KWObgaEBoSgQiYWAsSmjz/yjl0F++Got0Mdp4Rw==}
+    engines: {node: '>=6'}
+
+  '@fortawesome/fontawesome-svg-core@6.6.0':
+    resolution: {integrity: sha512-KHwPkCk6oRT4HADE7smhfsKudt9N/9lm6EJ5BVg0tD1yPA5hht837fB87F8pn15D8JfTqQOjhKTktwmLMiD7Kg==}
+    engines: {node: '>=6'}
+
+  '@fortawesome/free-regular-svg-icons@6.6.0':
+    resolution: {integrity: sha512-Yv9hDzL4aI73BEwSEh20clrY8q/uLxawaQ98lekBx6t9dQKDHcDzzV1p2YtBGTtolYtNqcWdniOnhzB+JPnQEQ==}
+    engines: {node: '>=6'}
+
+  '@fortawesome/free-solid-svg-icons@6.6.0':
+    resolution: {integrity: sha512-IYv/2skhEDFc2WGUcqvFJkeK39Q+HyPf5GHUrT/l2pKbtgEIv1al1TKd6qStR5OIwQdN1GZP54ci3y4mroJWjA==}
+    engines: {node: '>=6'}
+
   '@humanfs/core@0.19.0':
     resolution: {integrity: sha512-2cbWIHbZVEweE853g8jymffCA+NCMiuqeECeBBLm8dg2oFdjuGJhgN4UAbI+6v0CKbbhvtXA4qV8YR5Ji86nmw==}
     engines: {node: '>=18.18.0'}
@@ -1359,6 +1384,9 @@ packages:
     resolution: {integrity: sha512-NHxohEqad6Ra/r4lGknO52uc/GrWILXAMs1BB4401GTqww0fw1bAqzpG1XHuDO+dprg4GvsD9ZLLSsdo78p9hQ==}
     engines: {node: '>=16'}
     hasBin: true
+
+  '@vesp/nuxt-fontawesome@1.1.0':
+    resolution: {integrity: sha512-Ze3/SxGZMGCp5VvRtXXpnzyWzaCBvyDPB9nFZK3UrScOdjivX8mb+5l55hKhz+trNAYERs455J0xiQEHWq72DA==}
 
   '@vitejs/plugin-vue-jsx@4.0.1':
     resolution: {integrity: sha512-7mg9HFGnFHMEwCdB6AY83cVK4A6sCqnrjFYF4WIlebYAQVVJ/sC/CiTruVdrRlhrFoeZ8rlMxY9wYpPTIRhhAg==}
@@ -4944,6 +4972,20 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
+  '@fortawesome/fontawesome-common-types@6.6.0': {}
+
+  '@fortawesome/fontawesome-svg-core@6.6.0':
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.6.0
+
+  '@fortawesome/free-regular-svg-icons@6.6.0':
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.6.0
+
+  '@fortawesome/free-solid-svg-icons@6.6.0':
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.6.0
+
   '@humanfs/core@0.19.0': {}
 
   '@humanfs/node@0.16.5':
@@ -5699,6 +5741,16 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@vesp/nuxt-fontawesome@1.1.0(magicast@0.3.5)(rollup@4.24.0)':
+    dependencies:
+      '@fortawesome/fontawesome-svg-core': 6.6.0
+      '@nuxt/kit': 3.13.2(magicast@0.3.5)(rollup@4.24.0)
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - webpack-sources
 
   '@vitejs/plugin-vue-jsx@4.0.1(vite@5.4.10(@types/node@22.7.9)(terser@5.36.0))(vue@3.5.12(typescript@5.6.3))':
     dependencies:

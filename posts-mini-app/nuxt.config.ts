@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
+    '@vesp/nuxt-fontawesome',
   ],
   eslint: {
     config: {
