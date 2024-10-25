@@ -1,11 +1,9 @@
 <template>
-
-   <div>
+  <div>
     <AppHeader />
     <slot />
     <AppFooter />
   </div>
-
 </template>
 
 <script lang="ts" setup>

@@ -2,6 +2,7 @@
   <div>
     <TagDetails
       v-for="tag in tags"
+      :key="tag"
       :name="tag"
     />
   </div>

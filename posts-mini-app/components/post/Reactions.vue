@@ -1,21 +1,21 @@
 <template>
   <div class="flex items-center space-x-0.5">
     <ButtonLike
-      @click="handleClick('like')"
       :is-pressed="postReactionsToggled.like"
       :count="reactions.likes"
-      />
+      @click="handleClick('like')"
+    />
     <ButtonDislike
-      @click="handleClick('dislike')"
       :is-pressed="postReactionsToggled.dislike"
       :count="reactions.dislikes"
-      />
+      @click="handleClick('dislike')"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
 interface Props {
-  post: Post,
+  post: Post
 }
 
 // todo: on toggle increase / decrease value

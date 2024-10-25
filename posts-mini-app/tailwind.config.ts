@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default <Partial<Config>>{
   theme: {
@@ -8,7 +7,7 @@ export default <Partial<Config>>{
         red: {
           420: '#FF3B30',
         },
-      }
+      },
     },
   },
 }

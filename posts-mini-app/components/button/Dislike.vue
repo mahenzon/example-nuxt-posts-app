@@ -1,6 +1,5 @@
 <template>
   <ButtonGenericReaction
-    @click="emit('click')"
     class="rounded-r-full"
     :icon-pressed="['fas', iconName]"
     :icon-default="['far', iconName]"
@@ -8,6 +7,7 @@
     active-bg-class="bg-black"
     :count="count"
     :is-pressed="isPressed"
+    @click="emit('click')"
   />
 </template>
 
@@ -21,7 +21,7 @@ const { count, isPressed } = defineProps<Props>()
 const iconName = 'thumbs-down'
 
 const emit = defineEmits<{
-  click: [],
+  click: []
 }>()
 </script>
 

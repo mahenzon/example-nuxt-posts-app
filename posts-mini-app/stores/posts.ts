@@ -18,7 +18,7 @@ export const usePostsStore = defineStore('postsStore', () => {
     const data: { posts: Post[] } = await $fetch(config.postsApi.url, {
       params: {
         limit: config.postsApi.limit,
-      }
+      },
     })
     return data.posts
   }
@@ -27,7 +27,8 @@ export const usePostsStore = defineStore('postsStore', () => {
     const url = `${config.postsApi.url}/${postId}`
     try {
       return await $fetch(url)
-    } catch (e) {
+    }
+    catch (e) {
       console.error('Could not load post by id', postId, e)
       return undefined
     }

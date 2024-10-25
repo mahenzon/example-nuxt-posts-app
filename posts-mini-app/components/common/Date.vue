@@ -10,7 +10,6 @@ interface Props {
 }
 
 const { date = 'Today' } = defineProps<Props>()
-
 </script>
 
 <style>

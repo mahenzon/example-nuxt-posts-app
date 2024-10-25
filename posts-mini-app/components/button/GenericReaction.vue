@@ -1,6 +1,5 @@
 <template>
   <button
-    @click="emit('click')"
     :class="[
       'flex',
       'items-center',
@@ -10,6 +9,7 @@
       style.background,
       style.text,
     ]"
+    @click="emit('click')"
   >
     <FontAwesome
       :icon="style.icon.name"
@@ -17,9 +17,11 @@
       class="mr-2"
     />
     <span class="mr-3">{{ props.title }}</span>
-    <span :class="[
-      style.count.opacity,
-    ]">{{ props.count }}</span>
+    <span
+      :class="[
+        style.count.opacity,
+      ]"
+    >{{ props.count }}</span>
   </button>
 </template>
 
@@ -35,7 +37,7 @@ interface Props {
 
 const props = defineProps<Props>()
 const emit = defineEmits<{
-  click: [],
+  click: []
 }>()
 
 const style = computed(() => {

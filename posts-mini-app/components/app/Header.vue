@@ -2,8 +2,13 @@
   <div>
     <nav>
       <ul>
-        <li :key="path" v-for="[path, title] in paths">
-          <NuxtLink :to="path">{{ title }}</NuxtLink>
+        <li
+          v-for="[path, title] in paths"
+          :key="path"
+        >
+          <NuxtLink :to="path">
+            {{ title }}
+          </NuxtLink>
         </li>
       </ul>
     </nav>

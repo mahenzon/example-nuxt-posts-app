@@ -1,8 +1,15 @@
 <template>
   <div>
-    <PostDetails v-if="post" :post="post"/>
-    <div v-else-if="loading">Loading...</div>
-    <div v-else>Post <code>{{ id }}</code> not found</div>
+    <PostDetails
+      v-if="post"
+      :post="post"
+    />
+    <div v-else-if="loading">
+      Loading...
+    </div>
+    <div v-else>
+      Post <code>{{ id }}</code> not found
+    </div>
   </div>
 </template>
 
@@ -19,7 +26,8 @@ if (Number.isInteger(intId)) {
   await useAsyncData('get-post', () => store.loadPost(intId).then(() => true), {
     lazy: true,
   })
-} else {
+}
+else {
   // any error needed?
   console.log('invalid post id', id)
 }

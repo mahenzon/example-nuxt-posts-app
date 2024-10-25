@@ -1,14 +1,14 @@
 <template>
   <div>
     <PostActionOpenComments :id="post.id" />
-    <CommonDate/>
+    <CommonDate />
     <TagArray :tags="post.tags" />
   </div>
 </template>
 
 <script lang="ts" setup>
 interface Props {
-  post: Post,
+  post: Post
 }
 
 const { post } = defineProps<Props>()
