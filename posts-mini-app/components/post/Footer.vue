@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center space-x-3 my-5">
+  <div class="flex items-center flex-col md:flex-row md:space-x-3 mt-5">
     <PostReactions :post="post" />
     <PostMeta :post="post" />
   </div>
