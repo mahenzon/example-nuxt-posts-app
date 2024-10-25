@@ -2,10 +2,10 @@
   <ButtonGenericReaction
     @click="emit('click')"
     class="rounded-l-full"
-    active-bg-class="bg-red-420"
-    icon-pressed="fa6-solid:heart"
-    icon-default="fa6-regular:heart"
+    :icon-pressed="['fas', iconName]"
+    :icon-default="['far', iconName]"
     title="Like"
+    active-bg-class="bg-red-420"
     :count="count"
     :is-pressed="isPressed"
   />
@@ -18,6 +18,8 @@ interface Props {
 }
 
 const { count, isPressed } = defineProps<Props>()
+const iconName = 'heart'
+
 const emit = defineEmits<{
   click: [],
 }>()

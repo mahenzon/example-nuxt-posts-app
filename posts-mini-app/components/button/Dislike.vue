@@ -2,8 +2,8 @@
   <ButtonGenericReaction
     @click="emit('click')"
     class="rounded-r-full"
-    icon-pressed="fa6-solid:thumbs-down"
-    icon-default="fa6-regular:thumbs-down"
+    :icon-pressed="['fas', iconName]"
+    :icon-default="['far', iconName]"
     title="Trash"
     active-bg-class="bg-black"
     :count="count"
@@ -18,6 +18,8 @@ interface Props {
 }
 
 const { count, isPressed } = defineProps<Props>()
+const iconName = 'thumbs-down'
+
 const emit = defineEmits<{
   click: [],
 }>()

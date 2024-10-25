@@ -11,9 +11,8 @@
       style.text,
     ]"
   >
-    <!-- todo: preload icon before first seen -->
-    <Icon
-      :name="style.icon.name"
+    <FontAwesome
+      :icon="style.icon.name"
       :style="{ color: style.icon.color }"
       class="mr-2"
     />
@@ -26,8 +25,8 @@
 
 <script lang="ts" setup>
 interface Props {
-  iconPressed: string
-  iconDefault: string
+  iconPressed: string[]
+  iconDefault: string[]
   activeBgClass: string
   title: string
   count: number
