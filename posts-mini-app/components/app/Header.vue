@@ -2,12 +2,12 @@
   <div>
     <header class="shadow-sm bg-white">
       <nav class="container mx-auth p-4 flex justify-between">
-        <ul class="flex gap-4">
+        <ul class="flex space-x-4">
           <li
             v-for="[path, title] in paths"
             :key="path"
           >
-            <NuxtLink :to="path">
+            <NuxtLink class="font-semibold" :to="path">
               {{ title }}
             </NuxtLink>
           </li>
