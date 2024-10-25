@@ -11,5 +11,13 @@ export default withNuxt({
         max: 1,
       },
     }],
+    'vue/comma-dangle': ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      generics: 'always-multiline',
+      functions: 'always-multiline',
+      enums: 'always-multiline',
+      tuples: 'always-multiline',
+    }],
   },
 })
