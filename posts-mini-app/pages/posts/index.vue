@@ -4,7 +4,7 @@
       This is my Posts page
     </h1>
     <div v-if="!posts.length && isLoading">
-      Loading...
+      <PostSkeleton v-for="idx in 3" :key="idx" />
     </div>
     <div v-else-if="posts.length">
       <PostDetails
@@ -13,7 +13,10 @@
         :post="post"
       />
     </div>
-    <div v-else>
+    <div
+      v-else
+      class="text-3xl text-center"
+    >
       No posts found, sorry
     </div>
   </div>
