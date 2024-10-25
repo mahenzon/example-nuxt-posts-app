@@ -1,6 +1,11 @@
 export default defineAppConfig({
-  postsApi: {
-    url: 'https://dummyjson.com/posts',
-    limit: 5,
+  api: {
+    posts: {
+      url: 'https://dummyjson.com/posts',
+      limit: 5,
+    },
+    comments: {
+      getUrl: (id: number) => `https://dummyjson.com/posts/${id}/comments`,
+    },
   },
 })

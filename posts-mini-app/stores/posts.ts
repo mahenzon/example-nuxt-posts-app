@@ -18,14 +18,14 @@ export const usePostsStore = defineStore('postsStore', () => {
   async function fetchPosts(): Promise<Post[]> {
     const data: { posts: Post[] } = await $fetch(config.api.posts.url, {
       params: {
-        limit: config.postsApi.limit,
+        limit: config.api.posts.limit,
       },
     })
     return data.posts
   }
 
   async function fetchPost(postId: number): Promise<Post | undefined> {
-    const url = `${config.postsApi.url}/${postId}`
+    const url = `${config.api.posts.url}/${postId}`
     try {
       return await $fetch(url)
     }
