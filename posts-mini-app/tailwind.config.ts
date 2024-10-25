@@ -7,6 +7,9 @@ export default <Partial<Config>>{
         red: {
           420: '#FF3B30',
         },
+        orange: {
+          420: '#FF6B00',
+        },
       },
     },
   },
