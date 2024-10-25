@@ -6,6 +6,7 @@
       'px-3',
       'py-1',
       'focus:outline-none',
+      'whitespace-nowrap',
       style.background,
       style.text,
     ]"
@@ -18,6 +19,7 @@
     />
     <span class="mr-3">{{ props.title }}</span>
     <span
+      class="w-6 flex items-center justify-center"
       :class="[
         style.count.opacity,
       ]"
