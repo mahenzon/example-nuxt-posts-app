@@ -70,10 +70,8 @@ export const usePostsStore = defineStore('postsStore', () => {
 
   // actions
   async function loadPosts(): Promise<void> {
-    store.isLoading.value = true
-    const posts = await fetchPosts()
+    const posts = await store.withLoading(fetchPosts)
     savePosts(posts)
-    store.isLoading.value = false
   }
 
   async function loadPost(id: number): Promise<Post | undefined> {

@@ -46,10 +46,8 @@ export const useCommentsStore = defineStore('commentsStore', () => {
   }
 
   async function loadComments(postId: number): Promise<void> {
-    store.isLoading.value = true
-    const comments = await fetchComments(postId)
+    const comments = await store.withLoading(() => fetchComments(postId))
     saveComments(postId, comments)
-    store.isLoading.value = false
   }
 
   return {
