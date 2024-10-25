@@ -69,20 +69,33 @@ export const usePostsStore = defineStore('postsStore', () => {
     return postsReactions.value.get(id)!
   }
 
-  function setStoredPostReactions(id: number, reaction: 'like' | 'dislike', value: boolean): void {
-    // if `reaction` has true `value`, then the other one should be false. make sure it's false here
-    const postReaction: PostReaction = {
-      like: false,
-      dislike: false,
+  function toggleStoredPostReactions(id: number, reaction: 'like' | 'dislike'): void {
+    const postReaction = getStoredPostReactions(id)
+    const secondReaction: 'like' | 'dislike' = reaction === 'like' ? 'dislike' : 'like'
+
+    const reactionsCount = postsData.value.get(id)!.reactions
+    const prevValue = postReaction[reaction]
+    postReaction[reaction] = !prevValue
+    if (!prevValue) {
+      // if new value is positive, check if the opposite reaction is set or not
+      if (postReaction[secondReaction]) {
+        // if opposite is set, unset and decrease
+        postReaction[secondReaction] = false
+        reactionsCount[`${secondReaction}s`] -= 1
+      }
+      // increase chosen reaction
+      reactionsCount[`${reaction}s`] += 1
     }
-    postReaction[reaction] = value
-    postsReactions.value.set(id, postReaction)
+    else {
+      // if unmarked, just increase chosen reaction
+      reactionsCount[`${reaction}s`] -= 1
+    }
   }
 
   async function toggleReaction(postId: number, reaction: 'like' | 'dislike') {
-    // async because there should be some API request too, now 'on mocks'
-    const postReaction = getStoredPostReactions(postId)
-    setStoredPostReactions(postId, reaction, !postReaction[reaction])
+    // func is async because there should be some API request too,
+    // now works only in local state.
+    toggleStoredPostReactions(postId, reaction)
     // fire async call here. maybe debounced for ~1 second
   }
 
