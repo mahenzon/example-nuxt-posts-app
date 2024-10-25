@@ -1,17 +1,19 @@
 <template>
   <div>
-    <nav>
-      <ul>
-        <li
-          v-for="[path, title] in paths"
-          :key="path"
-        >
-          <NuxtLink :to="path">
-            {{ title }}
-          </NuxtLink>
-        </li>
-      </ul>
-    </nav>
+    <header class="shadow-sm bg-white">
+      <nav class="container mx-auth p-4 flex justify-between">
+        <ul class="flex gap-4">
+          <li
+            v-for="[path, title] in paths"
+            :key="path"
+          >
+            <NuxtLink :to="path">
+              {{ title }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
   </div>
 </template>
 
@@ -22,3 +24,10 @@ const paths = [
   ['/about', 'About'],
 ]
 </script>
+
+<style>
+/* style for current NuxtLink */
+.router-link-exact-active {
+  color: orange;
+}
+</style>
