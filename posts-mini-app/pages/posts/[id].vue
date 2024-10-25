@@ -25,7 +25,10 @@
       Loading comments...
       <!-- todo: skeleton -->
     </div>
-    <div v-else>
+    <div
+      v-else
+      class="text-2xl text-center"
+    >
       No comments yet.
     </div>
   </div>
