@@ -8,6 +8,18 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vesp/nuxt-fontawesome',
   ],
+  fontawesome: {
+    icons: {
+      solid: [
+        'heart',
+        'thumbs-down',
+      ],
+      regular: [
+        'heart',
+        'thumbs-down',
+      ],
+    },
+  },
   eslint: {
     config: {
       stylistic: {
