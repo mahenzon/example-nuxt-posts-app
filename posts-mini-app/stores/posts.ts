@@ -35,9 +35,45 @@ export const usePostsStore = defineStore('postsStore', () => {
     }
   }
 
+  // utils
+  function getStoredPostReactions(id: number): PostReaction {
+    if (!postsReactions.value.has(id)) {
+      postsReactions.value.set(id, { like: false, dislike: false })
+    }
+    return postsReactions.value.get(id)!
+  }
+
+  function applyStoredReaction(post: Post) {
+    // when /posts page is visited after visiting another page,
+    // number gets reset to the value from API.
+    // so if there was a reaction applied, we loose the previous number.
+    // re-apply reaction so number of likes/dislikes corresponds the chosen reaction.
+    // in the real-world application this won't be needed
+    // since the value from the backend would be real.
+    const reactions = getStoredPostReactions(post.id)
+    for (const reaction of ['like', 'dislike'] as const) {
+      if (reactions[reaction]) {
+        // up to one reaction will be incremented.
+        post.reactions[`${reaction}s`] += 1
+      }
+    }
+  }
+
+  function savePost(post: Post) {
+    applyStoredReaction(post)
+    store.data.value.set(post.id, post)
+  }
+
+  function savePosts(posts: Post[]) {
+    posts.map(savePost)
+  }
+
   // actions
   async function loadPosts(): Promise<void> {
-    await store.loadData(fetchPosts)
+    store.isLoading.value = true
+    const posts = await fetchPosts()
+    savePosts(posts)
+    store.isLoading.value = false
   }
 
   async function loadPost(id: number): Promise<Post | undefined> {
@@ -47,16 +83,9 @@ export const usePostsStore = defineStore('postsStore', () => {
     }
     post = await fetchPost(id)
     if (post) {
-      store.saveItem(post)
+      savePost(post)
     }
     return post
-  }
-
-  function getStoredPostReactions(id: number): PostReaction {
-    if (!postsReactions.value.has(id)) {
-      postsReactions.value.set(id, { like: false, dislike: false })
-    }
-    return postsReactions.value.get(id)!
   }
 
   function toggleStoredPostReactions(id: number, reaction: 'like' | 'dislike'): void {
