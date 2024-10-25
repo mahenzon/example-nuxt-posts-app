@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* style for current NuxtLink */
+.router-link-exact-active {
+  @apply text-orange-420;
+}
+
+/* primary link */
+.active-link-orange {
+  @apply text-orange-420;
+  @apply border-b;
+  @apply border-b-orange-420;
+  @apply border-opacity-30;
+  @apply hover:opacity-80;
+}
+
+/* style for heading on the page */
+.big-header {
+  @apply text-4xl;
+  @apply font-bold;
+  @apply text-orange-420;
+  @apply text-center mb-12;
+}

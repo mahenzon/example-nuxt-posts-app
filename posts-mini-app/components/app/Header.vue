@@ -24,10 +24,3 @@ const paths = [
   ['/about', 'About'],
 ]
 </script>
-
-<style>
-/* style for current NuxtLink */
-.router-link-exact-active {
-  color: orange;
-}
-</style>

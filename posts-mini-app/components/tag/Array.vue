@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="flex items-center space-x-1">
     <TagDetails
-      v-for="tag in tags"
+      v-for="(tag, index) in tags"
       :key="tag"
       :name="tag"
+      :is-first="!index"
     />
   </div>
 </template>

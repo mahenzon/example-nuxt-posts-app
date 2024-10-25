@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-gray-300">
     <span class="date">{{ date }}</span>
   </div>
 </template>

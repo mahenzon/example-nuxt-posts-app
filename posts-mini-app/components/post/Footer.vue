@@ -1,5 +1,5 @@
 <template>
-  <div class="actions">
+  <div class="flex items-center space-x-3 my-5">
     <PostReactions :post="post" />
     <PostMeta :post="post" />
   </div>
@@ -12,5 +12,3 @@ interface Props {
 
 const { post } = defineProps<Props>()
 </script>
-
-<style></style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex items-center space-x-3">
     <PostActionOpenComments :id="post.id" />
     <CommonDate />
     <TagArray :tags="post.tags" />
@@ -13,7 +13,3 @@ interface Props {
 
 const { post } = defineProps<Props>()
 </script>
-
-<style>
-
-</style>

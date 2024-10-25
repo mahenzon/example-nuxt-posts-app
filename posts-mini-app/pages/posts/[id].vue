@@ -1,5 +1,8 @@
 <template>
   <div>
+    <h1 class="big-header">
+      This is the Post details page
+    </h1>
     <PostDetails
       v-if="post"
       :post="post"

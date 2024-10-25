@@ -1,6 +1,9 @@
 <template>
   <div>
-    <NuxtLink :to="`/posts/${id}`">
+    <NuxtLink
+      class="active-link-orange"
+      :to="`/posts/${id}`"
+    >
       Open comments
     </NuxtLink>
   </div>
@@ -12,7 +15,3 @@ interface Props {
 }
 const { id } = defineProps<Props>()
 </script>
-
-<style>
-
-</style>

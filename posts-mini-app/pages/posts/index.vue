@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Hello posts!</h1>
+    <h1 class="big-header">
+      This is my Posts page
+    </h1>
     <div v-if="!posts.length && isLoading">
       Loading...
     </div>
