@@ -17,11 +17,9 @@
 </template>
 
 <script lang="ts" setup>
-interface Props {
-  postId: number
-}
+const { id } = useRoute().params
+const postId = Number(id)
 
-const { postId } = defineProps<Props>()
 const postsStore = usePostsStore()
 const post = computed((): Post | undefined => postsStore.getPost(postId))
 
