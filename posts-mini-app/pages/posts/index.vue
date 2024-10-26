@@ -23,6 +23,16 @@
 </template>
 
 <script lang="ts" setup>
+useHead({
+  title: 'Posts',
+  meta: [
+    {
+      name: 'description',
+      content: 'This is the Posts List',
+    },
+  ],
+})
+
 const store = usePostsStore()
 // useAsyncData provides access to data that resolves asynchronously in an SSR-friendly composable.
 // If your action doesn't resolve a value, you can add any non nullish value:

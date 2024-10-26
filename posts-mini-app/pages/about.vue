@@ -77,3 +77,15 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'About the Posts App',
+  meta: [
+    {
+      name: 'description',
+      content: 'About my Posts App',
+    },
+  ],
+})
+</script>

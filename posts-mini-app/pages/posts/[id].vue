@@ -14,6 +14,17 @@ definePageMeta({
     'ensure-integer-id',
   ],
 })
+
+const { id } = useRoute().params
+useHead({
+  title: `Post #${id} details`,
+  meta: [
+    {
+      name: 'description',
+      content: 'This is the Posts List',
+    },
+  ],
+})
 </script>
 
 <style>

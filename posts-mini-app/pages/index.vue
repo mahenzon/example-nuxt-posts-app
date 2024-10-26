@@ -18,3 +18,15 @@
     </header>
   </div>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Index Page for the Posts App',
+  meta: [
+    {
+      name: 'description',
+      content: 'Welcome to my Example Posts App',
+    },
+  ],
+})
+</script>

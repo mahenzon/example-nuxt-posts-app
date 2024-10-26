@@ -7,6 +7,12 @@ export default defineNuxtConfig({
     '@vesp/nuxt-fontawesome',
   ],
   devtools: { enabled: true },
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    },
+  },
   compatibilityDate: '2024-04-03',
   eslint: {
     config: {
