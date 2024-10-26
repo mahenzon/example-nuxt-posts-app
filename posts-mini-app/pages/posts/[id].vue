@@ -13,20 +13,18 @@
     <div v-else>
       Post <code>{{ id }}</code> not found
     </div>
-
-    <div v-if="comments.length">
-      <ul>
-        <li v-for="comment in comments" :key="comment.id">
-          {{ comment.id }} {{ comment.body }}
-        </li>
-      </ul>
-    </div>
+    <CommentSection
+      v-if="comments.length"
+      :comments="comments"
+      class="mt-12"
+    />
     <div v-else-if="commentsStore.isLoading">
       Loading comments...
       <!-- todo: skeleton -->
     </div>
+    <!-- show "no comments" only if post is present -->
     <div
-      v-else
+      v-else-if="post"
       class="text-2xl text-center"
     >
       No comments yet.
@@ -44,6 +42,7 @@ const post = computed((): Post | undefined => postsStore.getPost(intId))
 const comments = computed((): Comment[] => commentsStore.getPostComments(intId))
 
 if (Number.isInteger(intId)) {
+  // todo: promise all?
   await useAsyncData('get-post', () => postsStore.loadPost(intId).then(() => true), {
     lazy: true,
   })
