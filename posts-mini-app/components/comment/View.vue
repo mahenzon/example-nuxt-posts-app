@@ -5,7 +5,12 @@
       :comments="comments"
       class="mt-12"
     />
-    <div v-else-if="commentsStore.isLoading">
+    <!--
+      if comments still loading,
+      but no post found already,
+      probably no skeleton needed
+     -->
+    <div v-else-if="commentsStore.isLoading && !noPostFound">
       <CommentSectionSkeleton class="mt-12" />
     </div>
     <!-- show "no comments" only if post is present -->
@@ -27,6 +32,7 @@ const postsStore = usePostsStore()
 
 const post = computed((): Post | undefined => postsStore.getPost(postId))
 const comments = computed((): Comment[] => commentsStore.getPostComments(postId))
+const noPostFound = computed((): boolean => !postsStore.isLoading && !post.value)
 
 await useAsyncData('get-post-comments', () => commentsStore.loadComments(postId).then(() => true), {
   lazy: true,
