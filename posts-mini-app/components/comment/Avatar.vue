@@ -63,7 +63,3 @@ const { user } = defineProps<Props>()
 
 const initials = computed(() => getInitials(user.fullName))
 </script>
-
-<style>
-
-</style>

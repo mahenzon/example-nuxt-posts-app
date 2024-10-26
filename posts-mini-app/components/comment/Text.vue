@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-lg leading-5 font-normal">
     {{ comment.body }}
   </div>
 </template>
@@ -11,7 +11,3 @@ interface Props {
 
 const { comment } = defineProps<Props>()
 </script>
-
-<style>
-
-</style>

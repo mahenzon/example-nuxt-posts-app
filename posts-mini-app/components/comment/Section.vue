@@ -15,7 +15,3 @@ interface Props {
 const { comments } = defineProps<Props>()
 const pluralSuffix = computed(() => comments.length === 1 ? '' : 's')
 </script>
-
-<style>
-
-</style>

@@ -16,7 +16,3 @@ interface Props {
 
 const { comments } = defineProps<Props>()
 </script>
-
-<style>
-
-</style>

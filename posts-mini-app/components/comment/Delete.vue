@@ -18,7 +18,3 @@ async function deleteComment() {
   await commentsStore.deleteComment(comment)
 }
 </script>
-
-<style>
-
-</style>

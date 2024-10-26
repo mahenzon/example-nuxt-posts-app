@@ -1,5 +1,5 @@
 <template>
-  <div class="font-semibold">
+  <div class="font-semibold text-lg">
     {{ user.fullName }}
   </div>
 </template>
@@ -11,7 +11,3 @@ interface Props {
 
 const { user } = defineProps<Props>()
 </script>
-
-<style>
-
-</style>
