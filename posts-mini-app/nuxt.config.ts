@@ -13,6 +13,12 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     },
   },
+  routeRules: {
+    // Homepage pre-rendered at build time
+    '/': { prerender: true },
+    // About pre-rendered at build time
+    '/about': { prerender: true },
+  },
   compatibilityDate: '2024-04-03',
   eslint: {
     config: {
