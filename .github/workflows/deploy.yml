@@ -29,7 +29,9 @@ jobs:
       - name: Upload artifact to pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          # this param needs to be from the content root
+          # it doesn't know anything about the `working-directory` param
+          path: ./posts-mini-app/.output/public
 
   # Deployment job
   deploy:
