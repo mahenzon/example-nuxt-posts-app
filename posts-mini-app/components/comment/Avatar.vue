@@ -44,13 +44,11 @@
           'before:absolute',
           'before:z-[-1]',
           'before:top-1.5',
-          // 'before:-bottom-1',
           'before:-left-1.5',
-          // 'before:right-0',
           'before:mx-auto',
         ]"
       >
-        {{ user.fullName }}
+        {{ user.fullName }} (<code> {{ user.username }}</code>)
       </span>
     </span>
   </div>
