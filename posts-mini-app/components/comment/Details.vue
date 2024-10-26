@@ -4,10 +4,7 @@
     <CommentAuthorName :user="comment.user" />
     <CommentText :comment="comment" />
     <CommonDate />
-    <!-- todo action -->
-    <a class="text-red-500 hover:text-red-700 border-b border-b-red-500">
-      Delete
-    </a>
+    <CommentDelete :comment="comment" />
   </div>
 </template>
 

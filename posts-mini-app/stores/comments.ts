@@ -36,6 +36,14 @@ export const useCommentsStore = defineStore('commentsStore', () => {
     return data.value.get(postId)!
   }
 
+  function deleteCommentFromStorage(comment: Comment): void {
+    if (!data.value.has(comment.postId)) {
+      return
+    }
+    const postComments = data.value.get(comment.postId)!
+    postComments.delete(comment.id)
+  }
+
   function saveComment(postId: number, comment: Comment) {
     const comments = getPostCommentsData(postId)
     comments.set(comment.id, comment)
@@ -45,16 +53,25 @@ export const useCommentsStore = defineStore('commentsStore', () => {
     comments.map(comment => saveComment(postId, comment))
   }
 
+  // actions
   async function loadComments(postId: number): Promise<void> {
     const comments = await store.withLoading(() => fetchComments(postId))
     saveComments(postId, comments)
   }
 
+  async function deleteComment(comment: Comment): Promise<void> {
+    deleteCommentFromStorage(comment)
+    // any async action like API request here
+  }
+
   return {
+    // state
     isLoading: store.isLoading,
     data,
-    // actions
+    // getters
     getPostComments,
+    // actions
     loadComments,
+    deleteComment,
   }
 })
