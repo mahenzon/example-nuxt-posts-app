@@ -18,9 +18,9 @@
       :comments="comments"
       class="mt-12"
     />
+
     <div v-else-if="commentsStore.isLoading">
-      Loading comments...
-      <!-- todo: skeleton -->
+      <CommentSectionSkeleton class="mt-12" />
     </div>
     <!-- show "no comments" only if post is present -->
     <div
