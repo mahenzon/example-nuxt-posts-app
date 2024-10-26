@@ -6,6 +6,10 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vesp/nuxt-fontawesome',
   ],
+  // use SSR by default
+  // but when building SPA w/o SSR,
+  // env param `NUXT_USE_SSR=0` should be passed
+  ssr: process.env.NUXT_USE_SSR !== '0',
   devtools: { enabled: true },
   app: {
     head: {
