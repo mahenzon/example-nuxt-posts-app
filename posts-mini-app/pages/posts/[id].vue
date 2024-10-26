@@ -14,7 +14,11 @@ const { id } = useRoute().params
 const intId = Number(id)
 
 if (!Number.isInteger(intId)) {
-  console.log('todo: throw')
+  throw createError({
+    statusCode: 404,
+    statusMessage: `Post id should be an integer, got '${id}' 😔. Please try something like '3'`,
+    fatal: true,
+  })
 }
 </script>
 
