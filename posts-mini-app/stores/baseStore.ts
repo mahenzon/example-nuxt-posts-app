@@ -15,9 +15,18 @@ export function createBaseStore<T extends Entity>() {
   // util
   async function withLoading<T>(call: () => Promise<T>): Promise<T> {
     isLoading.value = true
-    const res = await call()
-    isLoading.value = false
-    return res
+    let result: T
+    try {
+      result = await call()
+    }
+    catch (error) {
+      console.error('Could not fetch, got error:', error)
+      throw error
+    }
+    finally {
+      isLoading.value = false
+    }
+    return result
   }
 
   return {

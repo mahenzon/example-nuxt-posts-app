@@ -79,7 +79,7 @@ export const usePostsStore = defineStore('postsStore', () => {
     if (post) {
       return post
     }
-    post = await fetchPost(id)
+    post = await store.withLoading(() => fetchPost(id))
     if (post) {
       savePost(post)
     }
