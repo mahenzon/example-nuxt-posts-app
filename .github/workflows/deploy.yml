@@ -26,6 +26,10 @@ jobs:
         env:
           # for GitHub pages we want a simple Vue SPA
           NUXT_USE_SSR: 0
+          # If you are not using a custom domain,
+          # you need to set NUXT_APP_BASE_URL to your repository-slug
+          # for your build step
+          NUXT_APP_BASE_URL: '/example-nuxt-posts-app/'
       - name: Upload artifact to pages
         uses: actions/upload-pages-artifact@v3
         with:
