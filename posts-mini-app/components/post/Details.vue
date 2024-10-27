@@ -17,5 +17,3 @@ interface Props {
 
 const { post } = defineProps<Props>()
 </script>
-
-<style></style>
