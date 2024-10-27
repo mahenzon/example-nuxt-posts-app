@@ -1,4 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// read trailing slash if exists
+const BASE_URL_PREFIX = (process.env.NUXT_APP_BASE_URL || '').replace(/\/$/, '')
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -16,17 +20,17 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/android-chrome-192.png' },
-        { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/android-chrome-512.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16.png' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '48x48', href: '/favicon-48.png' },
-        { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96.png' },
-        { rel: 'icon', type: 'image/png', sizes: '128x128', href: '/favicon-128.png' },
-        { rel: 'icon', type: 'image/png', sizes: '256x256', href: '/favicon-256.png' },
+        { rel: 'icon', type: 'image/x-icon', href: `${BASE_URL_PREFIX}/favicon.ico` },
+        { rel: 'icon', type: 'image/svg+xml', href: `${BASE_URL_PREFIX}/favicon.svg` },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: `${BASE_URL_PREFIX}/apple-touch-icon.png` },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: `${BASE_URL_PREFIX}/android-chrome-192.png` },
+        { rel: 'icon', type: 'image/png', sizes: '512x512', href: `${BASE_URL_PREFIX}/android-chrome-512.png` },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: `${BASE_URL_PREFIX}/favicon-16.png` },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: `${BASE_URL_PREFIX}/favicon-32.png` },
+        { rel: 'icon', type: 'image/png', sizes: '48x48', href: `${BASE_URL_PREFIX}/favicon-48.png` },
+        { rel: 'icon', type: 'image/png', sizes: '96x96', href: `${BASE_URL_PREFIX}/favicon-96.png` },
+        { rel: 'icon', type: 'image/png', sizes: '128x128', href: `${BASE_URL_PREFIX}/favicon-128.png` },
+        { rel: 'icon', type: 'image/png', sizes: '256x256', href: `${BASE_URL_PREFIX}/favicon-256.png` },
       ],
     },
   },
