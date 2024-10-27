@@ -1,25 +1,27 @@
 <template>
   <div>
-    <CommentSection
-      v-if="comments.length"
-      :comments="comments"
-      class="mt-12"
-    />
-    <!--
+    <Transition name="fade" mode="out-in">
+      <CommentSection
+        v-if="comments.length"
+        :comments="comments"
+        class="mt-12"
+      />
+      <!--
       if comments still loading,
       but no post found already,
       probably no skeleton needed
      -->
-    <div v-else-if="commentsStore.isLoading && !noPostFound">
-      <CommentSectionSkeleton class="mt-12" />
-    </div>
-    <!-- show "no comments" only if post is present -->
-    <div
-      v-else-if="post"
-      class="text-2xl text-center"
-    >
-      No comments yet.
-    </div>
+      <div v-else-if="commentsStore.isLoading && !noPostFound">
+        <CommentSectionSkeleton class="mt-12" />
+      </div>
+      <!-- show "no comments" only if post is present -->
+      <div
+        v-else-if="post"
+        class="text-2xl text-center"
+      >
+        No comments yet.
+      </div>
+    </Transition>
   </div>
 </template>
 

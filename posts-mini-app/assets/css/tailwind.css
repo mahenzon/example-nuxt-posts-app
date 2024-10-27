@@ -23,3 +23,31 @@
   @apply text-orange-420;
   @apply text-center mb-12;
 }
+
+/* -- animations -- */
+
+/* fade animation */
+.fade {
+  &-enter-active,
+  &-leave-active {
+    @apply transition-opacity duration-200
+  }
+
+  &-enter,
+  &-leave-to {
+    @apply opacity-0;
+  }
+}
+
+/* slide animation */
+.list-slide {
+  &-enter-active,
+  &-leave-active {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    @apply opacity-0 translate-x-[30px];
+  }
+}
