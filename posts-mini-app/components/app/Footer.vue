@@ -6,7 +6,10 @@
           <span>
             &copy; 2024 Suren Khorenyan -
           </span>
-          <a class="text-blue-800" href="https://t.me/mahenzon">PM me at Telegram</a>
+          <a
+            class="text-blue-500 hover:underline"
+            href="https://t.me/mahenzon"
+          >PM me at Telegram</a>
         </p>
       </div>
     </div>
