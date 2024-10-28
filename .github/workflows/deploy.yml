@@ -6,6 +6,10 @@ on:
   push:
     branches:
       - master
+    paths:
+      - .github/workflows/deploy.yml
+      - posts-mini-app/**
+
 jobs:
   build:
     runs-on: ubuntu-latest
