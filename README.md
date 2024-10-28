@@ -35,7 +35,7 @@ To get started with the project, follow these steps:
 2. Navigate to the project directory:
 
     ```shell
-    cd example-nuxt-posts-app
+    cd example-nuxt-posts-app/posts-mini-app
     ```
 
 3. Install the dependencies:
