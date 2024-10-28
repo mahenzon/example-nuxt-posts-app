@@ -7,11 +7,18 @@
       <PostSkeleton v-for="idx in 3" :key="idx" />
     </div>
     <div v-else-if="posts.length">
-      <PostDetails
-        v-for="post in posts"
-        :key="post.id"
-        :post="post"
-      />
+      <!--
+        If any extra posts are loaded
+        when the page is already rendered,
+        add new posts with slide-in animation.
+      -->
+      <TransitionGroup name="list-slide" tag="div">
+        <PostDetails
+          v-for="post in posts"
+          :key="post.id"
+          :post="post"
+        />
+      </TransitionGroup>
     </div>
     <div
       v-else
