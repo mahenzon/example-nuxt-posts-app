@@ -1,7 +1,7 @@
 <template>
   <div ref="comments-block" class="relative">
     <div
-      class="absolute -inset-x-3 md:-inset-x-5 -inset-y-2 -z-10 rounded-lg transition-colors duration-700"
+      class="absolute -inset-x-3 md:-inset-x-5 lg:-inset-x-4 -inset-y-2 -z-10 rounded-lg transition-colors duration-700"
       :class="{ 'bg-amber-100': isFocused }"
     />
 
@@ -9,7 +9,7 @@
       <CommentSection
         v-if="comments.length"
         :comments="comments"
-        class="mt-12"
+        class="mt-6 md:mt-12"
       />
       <!--
       if comments still loading,
@@ -17,7 +17,7 @@
       probably no skeleton needed
      -->
       <div v-else-if="commentsStore.isLoading && !noPostFound">
-        <CommentSectionSkeleton class="mt-12" />
+        <CommentSectionSkeleton class="mt-6 md:mt-12" />
       </div>
       <!-- show "no comments" only if post is present -->
       <div
