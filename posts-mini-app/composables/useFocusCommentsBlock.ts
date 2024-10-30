@@ -1,9 +1,11 @@
 export default function (refName: string, focusDuration: number = 700) {
+  const config = useAppConfig()
+
   const comments = useTemplateRef<HTMLDivElement>(refName)
   const eventBus = useEventBus()
   const isFocused = ref(false)
 
-  const unsubscribe = eventBus.on('open-comments', () => {
+  const unsubscribe = eventBus.on(config.events.openComments, () => {
     if (!comments.value) {
       return
     }

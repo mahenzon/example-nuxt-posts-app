@@ -16,8 +16,9 @@ interface Props {
 }
 const { id } = defineProps<Props>()
 
+const config = useAppConfig()
 const eventBus = useEventBus()
 function handleOpenCommentsClicked() {
-  eventBus.emit('open-comments')
+  eventBus.emit(config.events.openComments)
 }
 </script>

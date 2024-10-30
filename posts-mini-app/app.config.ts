@@ -8,4 +8,8 @@ export default defineAppConfig({
       getUrl: (id: number) => `https://dummyjson.com/posts/${id}/comments`,
     },
   },
+  // store global events name to be reused over the app
+  events: {
+    openComments: 'open-comments',
+  },
 })
