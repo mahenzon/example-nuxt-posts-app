@@ -45,21 +45,7 @@ await useAsyncData('get-post-comments', () => commentsStore.loadComments(postId)
   lazy: true,
 })
 
-const commentsHeader = useTemplateRef('comments-block')
-const eventBus = useEventBus()
-const isFocused = ref(false)
-
-const unsubscribe = eventBus.on('open-comments', () => {
-  if (!commentsHeader.value) {
-    return
-  }
-  commentsHeader.value.scrollIntoView({ behavior: 'smooth' })
-  isFocused.value = true
-  // disable in 700ms using timeout
-  setTimeout(() => {
-    isFocused.value = false
-  }, 700)
-})
+const { unsubscribe, isFocused } = useFocusCommentsBlock('comments-block')
 
 onBeforeUnmount(() => {
   unsubscribe()
