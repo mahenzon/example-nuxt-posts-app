@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-      class="absolute -inset-x-5 -inset-y-2 z-0 rounded-lg transition-colors duration-700"
+      class="absolute -inset-x-3 md:-inset-x-5 -inset-y-2 z-0 rounded-lg transition-colors duration-700"
       :class="{ 'bg-amber-100': isFocused }"
     />
 
